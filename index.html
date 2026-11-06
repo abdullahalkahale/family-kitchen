@@ -4,20 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#244b3c">
+  <meta name="theme-color" content="#F3EEE5">
   <title>نقاط المطبخ | العيلة</title>
 
   <style>
     :root {
-      --green: #244b3c;
-      --green2: #376b55;
-      --mint: #e8f1eb;
-      --cream: #f7f8f4;
-      --ink: #203329;
-      --muted: #718078;
-      --line: #e2e9e3;
-      --white: #fff;
-      --gold: #c18b35;
+      --bg: #F3EEE5;
+      --surface: #FCFAF6;
+      --surface2: #F5F0E8;
+      --beige: #E8DFD0;
+      --gold: #A58B5D;
+      --gold-light: #D6C4A1;
+      --ink: #514638;
+      --muted: #968A78;
+      --line: #E9E1D5;
+      --white: #FFFFFF;
     }
 
     * {
@@ -26,7 +27,7 @@
 
     body {
       margin: 0;
-      background: var(--cream);
+      background: var(--bg);
       color: var(--ink);
       font-family: system-ui, -apple-system, "Segoe UI",
         Tahoma, Arial, sans-serif;
@@ -39,30 +40,30 @@
     }
 
     header {
-      background: linear-gradient(135deg, #244b3c, #47785e);
-      color: white;
+      background: linear-gradient(145deg, #E8DFD0, #DDD0BB);
+      border: 1px solid #E2D7C7;
       border-radius: 24px;
-      padding: 24px;
+      padding: 25px;
       margin-bottom: 18px;
       position: relative;
       overflow: hidden;
     }
 
     header:after {
-      content: "";
+      content: "✦";
       position: absolute;
-      width: 170px;
-      height: 170px;
-      border: 1px solid #ffffff30;
-      border-radius: 50%;
-      left: -40px;
-      top: -70px;
+      left: 20px;
+      top: 8px;
+      color: #B49A6B;
+      font-size: 85px;
+      opacity: .15;
     }
 
     .eyebrow {
       font-size: 13px;
-      opacity: .8;
-      margin-bottom: 8px;
+      color: #8D7650;
+      margin-bottom: 12px;
+      font-weight: 700;
     }
 
     .hero {
@@ -70,45 +71,50 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 27px;
       margin: 0 0 7px;
-      font-weight: 800;
+      font-weight: 850;
+      color: #514638;
     }
 
     .sub {
       margin: 0;
-      color: #e2eee6;
+      color: #827665;
       font-size: 14px;
     }
 
     .chef {
-      font-size: 42px;
+      font-size: 43px;
     }
 
     .card {
-      background: var(--white);
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 18px;
+      padding: 19px;
       margin: 14px 0;
-      box-shadow: 0 5px 18px #20332908;
+      box-shadow: 0 4px 16px #51463808;
     }
 
     h2 {
       font-size: 18px;
       margin: 0 0 14px;
+      color: var(--ink);
     }
 
     .hint {
       font-size: 13px;
       color: var(--muted);
       margin: -7px 0 14px;
+      line-height: 1.7;
     }
 
-    /* اختيار الأشخاص: بالطول */
+    /* اختيار الأشخاص عمودياً */
     .people {
       display: flex;
       flex-direction: column;
@@ -116,27 +122,28 @@
     }
 
     .person {
-      border: 1.5px solid var(--line);
-      border-radius: 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
       padding: 14px;
-      background: #fff;
+      background: var(--surface);
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      min-height: 58px;
-      transition: .15s;
+      min-height: 59px;
+      transition: .2s;
     }
 
     .person input {
-      accent-color: var(--green2);
+      accent-color: var(--gold);
       width: 19px;
       height: 19px;
+      cursor: pointer;
     }
 
     .person.selected {
-      border-color: var(--green2);
-      background: var(--mint);
+      border-color: var(--gold-light);
+      background: #F5F0E8;
     }
 
     .person span {
@@ -148,36 +155,41 @@
       display: block;
       font-size: 14px;
       font-weight: 700;
-      margin: 14px 0 7px;
+      margin: 16px 0 8px;
     }
 
     input[type=text] {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       border: 1px solid var(--line);
       border-radius: 12px;
       font: inherit;
-      background: #fff;
+      background: #FFFFFF;
       color: var(--ink);
       outline: none;
     }
 
-    input:focus {
-      border-color: var(--green2);
-      box-shadow: 0 0 0 3px #376b5518;
+    input[type=text]:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px #A58B5D18;
     }
 
     .primary {
       width: 100%;
       border: 0;
       border-radius: 13px;
-      background: var(--green);
-      color: #fff;
+      background: var(--gold);
+      color: #FFFFFF;
       font: inherit;
       font-weight: 800;
       padding: 15px;
-      margin-top: 16px;
+      margin-top: 17px;
       cursor: pointer;
+      transition: .2s;
+    }
+
+    .primary:hover {
+      background: #92784D;
     }
 
     .primary:disabled {
@@ -190,9 +202,10 @@
       margin-top: 10px;
       color: var(--muted);
       min-height: 20px;
+      line-height: 1.7;
     }
 
-    /* ترتيب النقاط: بالطول */
+    /* ترتيب النقاط عمودياً */
     .scores {
       display: flex;
       flex-direction: column;
@@ -200,7 +213,7 @@
     }
 
     .score {
-      background: #f8faf7;
+      background: var(--surface2);
       border: 1px solid var(--line);
       border-radius: 15px;
       padding: 16px;
@@ -229,7 +242,7 @@
     .points {
       font-size: 23px;
       font-weight: 850;
-      color: var(--green);
+      color: var(--gold);
       white-space: nowrap;
     }
 
@@ -243,7 +256,7 @@
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      padding: 13px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--line);
       align-items: center;
     }
@@ -253,18 +266,19 @@
     }
 
     .entry-title {
-      font-weight: 700;
+      font-weight: 750;
     }
 
     .entry-meta {
       font-size: 12px;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 5px;
+      line-height: 1.7;
     }
 
     .entry-points {
       font-weight: 800;
-      color: var(--green);
+      color: var(--gold);
       white-space: nowrap;
     }
 
@@ -272,24 +286,42 @@
       color: var(--muted);
       font-size: 14px;
       text-align: center;
-      padding: 18px 0;
+      padding: 20px 0;
     }
 
     footer {
       text-align: center;
       color: var(--muted);
       font-size: 12px;
-      margin-top: 20px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 380px) {
+      .wrap {
+        padding: 14px 10px 35px;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .card {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
-
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">مطبخ العيلة</div>
+    <div class="eyebrow">مطبخ العيلة ✦</div>
+
     <div class="hero">
       <div>
         <h1>مين اشتغل اليوم؟</h1>
@@ -307,7 +339,6 @@
     </p>
 
     <div class="people" id="people">
-
       <label class="person">
         <input type="checkbox" value="عبدالله">
         <span>عبدالله</span>
@@ -327,24 +358,24 @@
         <input type="checkbox" value="ماما">
         <span>ماما</span>
       </label>
-
     </div>
 
     <div style="
       margin-top:16px;
-      padding:13px;
-      background:#e8f1eb;
+      padding:13px 14px;
+      background:#F0E9DC;
+      border:1px solid #E9DFCE;
       border-radius:12px;
-      color:#244b3c;
+      color:#806D4D;
       font-weight:700;
       font-size:14px;
     ">
-      ⭐ كل مشاركة بالمطبخ = نقطة واحدة لكل شخص
+      ✦ كل مشاركة بالمطبخ = نقطة واحدة لكل شخص
     </div>
 
     <label for="description">
       ٢. شو كان الشغل؟
-      <span style="font-weight:400;color:#718078">
+      <span style="font-weight:400;color:#968A78">
         (اختياري)
       </span>
     </label>
@@ -378,7 +409,7 @@
   </section>
 
   <footer>
-    نقاط المطبخ · العيلة ❤️
+    نقاط المطبخ · العيلة ✦
   </footer>
 
 </div>
@@ -410,7 +441,7 @@
     });
   });
 
-  // حماية النصوص المعروضة
+  // حماية النصوص
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, c => ({
       "&": "&amp;",
@@ -430,7 +461,6 @@
 
   // تحديث النقاط والسجل
   async function refresh() {
-
     const { data, error } = await db
       .from("kitchen_points")
       .select("*")
@@ -444,7 +474,7 @@
     }
 
     const totals = Object.fromEntries(
-      names.map(name => [name, 0])
+      names.map(n => [n, 0])
     );
 
     data.forEach(row => {
@@ -453,38 +483,34 @@
       }
     });
 
-    // ترتيب تنازلي مع الحفاظ على ترتيب الأسماء عند التعادل
+    // ترتيب تنازلي
     const sorted = [...names].sort(
       (a, b) => totals[b] - totals[a]
     );
 
     document.getElementById("scores").innerHTML =
-      sorted.map((name, index) => `
+      sorted.map((n, i) => `
         <div class="score">
-
           <div class="scoretop">
             <span class="medal">
-              ${index === 0 && totals[name] > 0 ? "🏅" : ""}
+              ${i === 0 && totals[n] > 0 ? "🏅" : ""}
             </span>
             <span class="score-name">
-              ${escapeHtml(name)}
+              ${escapeHtml(n)}
             </span>
           </div>
 
           <div class="points">
-            ${totals[name]}
-            <small>نقطة</small>
+            ${totals[n]} <small>نقطة</small>
           </div>
-
         </div>
       `).join("");
 
-    // عرض السجل
+    // عرض سجل المشاركات
     document.getElementById("history").innerHTML =
       data.length
         ? data.map(row => `
           <div class="entry">
-
             <div>
               <div class="entry-title">
                 ${escapeHtml(row.person_name)}
@@ -499,17 +525,15 @@
             </div>
 
             <div class="entry-points">
-              +${Number(row.points)} ⭐
+              +${Number(row.points)} ✦
             </div>
-
           </div>
         `).join("")
-        : '<div class="empty">لسه ما في نقاط مسجلة. خلينا نبدأ! 🌱</div>';
+        : '<div class="empty">لسه ما في نقاط مسجلة. خلينا نبدأ! ✦</div>';
   }
 
   // تسجيل النقاط
   addBtn.addEventListener("click", async () => {
-
     const selected = [
       ...document.querySelectorAll(".person input:checked")
     ].map(input => input.value);
@@ -539,14 +563,11 @@
       .insert(rows);
 
     if (error) {
-
       statusEl.textContent =
         "صار خطأ أثناء التسجيل: " + error.message;
-
     } else {
-
       statusEl.textContent =
-        `تم تسجيل نقطة لكل من: ${selected.join("، ")} 🎉`;
+        `تم تسجيل نقطة لكل من: ${selected.join("، ")} ✦`;
 
       document.querySelectorAll(".person input").forEach(input => {
         input.checked = false;
@@ -561,7 +582,7 @@
     addBtn.disabled = false;
   });
 
-  // تحميل أولي وتحديث تلقائي
+  // تحميل أولي وتحديث كل 10 ثوانٍ
   refresh();
   setInterval(refresh, 10000);
 
@@ -569,4 +590,3 @@
 
 </body>
 </html>
-
